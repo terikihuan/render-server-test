@@ -26,6 +26,7 @@ const generateId = () => {
 }
 
 app.use(express.json())
+app.use(express.static("build"))
 app.use(cors())
 
 // Requests
@@ -50,9 +51,9 @@ app.post("/api/notes", (request, response) => {
   response.json(note)
 })
 
-app.get("/", (request, response) => {
-  response.send("<h1>Hello World!</h1>")
-})
+// app.get("/", (request, response) => {
+//   response.send("<h1>Hello World!</h1>")
+// })
 
 app.get("/api/notes/:id", (request, response) => {
   const id = Number(request.params.id)
